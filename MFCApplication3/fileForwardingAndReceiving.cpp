@@ -34,50 +34,40 @@ void thread_receive (){
 
 }
 
+void thread_send() 
+{
 
+	char senderAddress[20] = "192.168.10.111";
+	//char senderAddress[20] = "192.168.10.255";
+	//端口号
+
+	int senderPort = 6306;
+	// 判断条件
+
+	bool b = 1;   //是否发送
+
+		//发送数据
+	vector <byte> obuff;
+	
+
+	class networkTransmission* Unlinks = new networkTransmission();
+
+	Unlinks->send(senderAddress, senderPort, b);
+
+	Unlinks->Csend();
+}
 
 
 
 bool fFAR::start() {
-	//网络ip地址
-	
-	char senderAddress[20] = "192.168.10.111";
-	//char senderAddress[20] = "192.168.10.255";
-	
 
-	//端口号
-	
-	int senderPort =6306;
-
-	
-		//发送数据
-    vector <byte> obuff;
-	
-	//判断条件
-	
-	bool b = 1;   //是否发送
-	
-	
-	
-
-	class networkTransmission* Unlinks = new networkTransmission();        //发送端
-    
-	//接收数据
 	thread dateReceive(thread_receive);
 	if (dateReceive.joinable())
 		dateReceive.detach();
-	
-	
 
-	//发送数据
-	Unlinks->send(senderAddress, senderPort,b);
-	system("pause");
-
-
-	//释放接口，清理数据
-	Unlinks->Csend();
-	
-
+	thread dateReceive(thread_send);
+	if (dateReceive.joinable())
+		dateReceive.detach();
 		return true;
 }
 #include"pch.h"

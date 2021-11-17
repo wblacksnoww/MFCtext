@@ -120,11 +120,11 @@ string to_hex(unsigned char* data, int len) {
         return 1;
     }
     //打开文件
-    //class file* file1 = new file();
-    //vector<vector<double> > DOF;
-    //vector<vector<double> > CT;   //返回文件处理的出来的数组
+    class file* file1 = new file();
+    vector<vector<double> > DOF;
+    vector<vector<double> > CT;   //返回文件处理的出来的数组
     //文件处理
-    //file1->readFile(CT,DOF);                                     //读取文档
+    file1->readFile(CT,DOF);                                     //读取文档
     
     int nLen = sizeof(SOCKADDR);
 

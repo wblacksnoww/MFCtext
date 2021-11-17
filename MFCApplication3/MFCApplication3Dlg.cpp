@@ -166,7 +166,7 @@ void CMFCApplication3Dlg::OnBnClickedOk()
 	// TODO: 在此添加控件通知处理程序代码
 	fFAR aa = *new fFAR;
 	aa.start();
-	CDialogEx::OnOK();
+	
 }
 
 
